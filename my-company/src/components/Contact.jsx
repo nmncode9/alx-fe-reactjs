@@ -19,7 +19,14 @@
      return (
        <div style={{ padding: '20px' }}>
          <h1>Contact Us</h1>
-         <form onSubmit={handleSubmit}>
+         <form 
+         onSubmit={handleSubmit}
+         style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1rem',
+        }}>
            <input
              type="text"
              name="name"
