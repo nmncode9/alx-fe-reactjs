@@ -22,11 +22,11 @@
          <form 
          onSubmit={handleSubmit}
          style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '1rem',
-        }}>
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
+         }}>
            <input
              type="text"
              name="name"
