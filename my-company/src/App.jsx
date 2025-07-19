@@ -17,7 +17,7 @@ function Layout() {
   );
 }
 
-const routes = [
+const Routes = [
   {
     path: '/',
     element: <Layout />,
@@ -31,7 +31,7 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(Routes);
 
 export default function App() {
   return <RouterProvider router={router} />;
