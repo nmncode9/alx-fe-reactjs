@@ -1,15 +1,38 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/Navbar'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import Home from './components/Home.jsx';
+import Contact from './components/Contact.jsx';
+import About from './components/About.jsx';
+import Services from './components/Services.jsx';
+import NotFound from './components/NotFound.jsx';
+import Navbar from './components/Navbar.jsx';
 
-function App() {
-
+function Layout() {
   return (
-          <div>
-              <Navbar />
-              <h1>Homepage</h1>
-          </div>
-      )
+    <>
+      <Navbar />
+      <main style={{ display: 'flex', justifyContent: 'center', padding: '1rem' }}>
+        <Outlet />
+      </main>
+    </>
+  );
 }
 
-export default App
+const routes = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'services', element: <Services /> },
+      { path: 'contact', element: <Contact /> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
