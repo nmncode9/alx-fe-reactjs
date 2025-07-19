@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import './App.css'
 import Home from './components/Home.jsx';
 import Contact from './components/Contact.jsx';
 import About from './components/About.jsx';
@@ -10,7 +11,7 @@ function Layout() {
   return (
     <>
       <Navbar />
-      <main style={{ display: 'flex', justifyContent: 'center', padding: '1rem' }}>
+      <main >
         <Outlet />
       </main>
     </>
