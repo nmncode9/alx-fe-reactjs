@@ -1,6 +1,6 @@
 import './App.css'
-import AddRecipeForm from './AddRecipeForm'
-import RecipeList from './RecipeList'
+import AddRecipeForm from './components/AddRecipeForm'
+import RecipeList from './components/RecipeList'
 
 function App() {
 

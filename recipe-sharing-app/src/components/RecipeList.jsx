@@ -1,4 +1,4 @@
-import { useRecipeStore } from "./useRecipeStore";
+import { useRecipeStore } from "../useRecipeStore";
 
 export default function RecipeList() {
   
