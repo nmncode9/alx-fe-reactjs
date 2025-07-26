@@ -17,6 +17,7 @@ export default function RecipeList() {
         <div style={recipeContainer} key={recipe.id}>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
+          <DeleteRecipeButton recipeId={recipe.id} />
         </div>
       ))}
     </div>
