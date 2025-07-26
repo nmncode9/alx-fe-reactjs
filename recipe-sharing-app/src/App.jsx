@@ -6,7 +6,7 @@ import NotFound from './components/NotFound'
 import Layout from './components/Layout'
 import EditRecipeForm from './components/EditRecipeForm';
 
-export const routes = [
+export const Routes = [
   {
     path: '/',
     element: <Layout />, // acts as the base layout with <Outlet />
@@ -19,7 +19,7 @@ export const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(Routes);
 export default router;
 
 
