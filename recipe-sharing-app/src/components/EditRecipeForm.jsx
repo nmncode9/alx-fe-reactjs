@@ -1,3 +1,4 @@
+import "../App.css"
 import { useRecipeStore } from "./recipeStore";
 import { useState } from "react";
 import { useEffect } from "react";

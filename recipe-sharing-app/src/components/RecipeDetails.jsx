@@ -7,8 +7,12 @@ export default function RecipeDetails({ recipeId }) {
       state.recipes.find(recipe => recipe.id === recipeId)
     );
 
+    const recipeWrapper = {
+      width: '650px',
+      fontSize: '1rem'
+    }
+
   return (
-    <div>
       <div key={recipe.id}>
         <em>{recipe.id}</em>
         <h3>{recipe.title}</h3>
@@ -16,6 +20,5 @@ export default function RecipeDetails({ recipeId }) {
         <EditRecipeForm recipeId={recipeId} />
         <RecipeDeleteButton recipeId={recipeId} />
       </div>
-    </div>
   )
 }

@@ -9,7 +9,9 @@ export default function RecipeList() {
     border: '1px solid white',
     borderRadius: '10px',
     padding: '1rem',
-    marginTop: '1rem'
+    marginTop: '1rem',
+    width: '650px',
+    fontSize: '1rem'
   }
 
   return (
