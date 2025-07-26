@@ -19,6 +19,7 @@ export const useRecipeStore = create(
             recipe.id === id ? { ...recipe, ...updatedData } : recipe
           ),
         })),
+      setRecipes: (recipes) => set({recipes})
     }),
     {
       name: 'recipe-storage', // key used in localStorage
