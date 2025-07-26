@@ -2,6 +2,8 @@ import { useRecipeStore } from "./recipeStore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import DeleteRecipeButton from "./DeleteRecipeButton";
 
 export default function EditRecipeForm() {
 
@@ -10,6 +12,8 @@ export default function EditRecipeForm() {
   const recipe = useRecipeStore(state => 
     state.recipes.find(r => r.id === recipeId)
   )
+
+  const navigate = useNavigate()
 
   const titleInput = {
     width: '650px',
@@ -41,31 +45,35 @@ export default function EditRecipeForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     updateRecipe(recipeId, formData)
-    alert('Saved!');
+    alert('Saved!')
+    navigate('/list')
   }
 
   const { title, description } = formData;
 
   return (
-    <form
-    onSubmit={handleSubmit}
-    key={recipeId}>
-      <input
-        style={titleInput}
-        type="text"
-        name="title"
-        value={title}
-        onChange={handleChange}
-      /><br/><br/>
-      <input
-        style={DescInput}
-        type="text"
-        name="description"
-        value={description}
-        onChange={handleChange}
-      /><br/><br/>
-      <button type="submit">Save</button>
-    </form>
+    <div>
+      <form
+      onSubmit={handleSubmit}
+      key={recipeId}>
+        <input
+          style={titleInput}
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        /><br/><br/>
+        <input
+          style={DescInput}
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleChange}
+        /><br/><br/>
+        <button type="submit">Save</button><br/><br/>
+      </form>
+      <DeleteRecipeButton recipeId={recipeId}/>
+    </div>
   )
 
 
