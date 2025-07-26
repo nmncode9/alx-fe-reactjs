@@ -1,6 +1,7 @@
 import { useRecipeStore } from "./recipeStore";
-import EditRecipeForm from "./EditRecipeForm";
+import DeleteRecipeButton from "./DeleteRecipeButton";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function RecipeDetails() {
 
@@ -17,7 +18,10 @@ export default function RecipeDetails() {
         <em>{recipe.id}</em>
         <h3>{recipe.title}</h3>
         <p>{recipe.description}</p>
-        <EditRecipeForm recipeId={recipeId} />
+        <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
+        <Link to={`/edit/${recipe.id}`}>
+          <button>Edit recipe</button>
+        </Link>
       </div>
   )
 }

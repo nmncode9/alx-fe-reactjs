@@ -31,6 +31,9 @@ export default function RecipeList() {
             <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
             <Link to={`/edit/${recipe.id}`}>
               <button>Edit recipe</button>
+            </Link>&nbsp;&nbsp;
+            <Link to={`/recipe/${recipe.id}`}>
+              <button>View details</button>
             </Link>
           </div>
         ))
