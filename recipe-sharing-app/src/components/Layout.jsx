@@ -10,7 +10,7 @@ export default function Layout() {
     backgroundColor: 'hsl(0, 0%, 20%)',
     padding: '1.5rem',
     borderRadius: '10px',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   }
 
   const linkStyle = {
