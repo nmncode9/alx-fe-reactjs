@@ -20,7 +20,7 @@ export default function RecipeList() {
         <div style={recipeContainer} key={recipe.id}>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
-          <DeleteRecipeButton recipeId={recipe.id} />
+          <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
           <Link to={`/edit/${recipe.id}`}><button>Edit recipe</button></Link>
         </div>
       ))}
