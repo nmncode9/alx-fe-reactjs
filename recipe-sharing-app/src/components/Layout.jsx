@@ -27,6 +27,9 @@ export default function Layout() {
           <li>
             <Link style={linkStyle} to={''}>Add a recipe</Link>
           </li>
+          <li>
+            <Link style={linkStyle} to={'/favorites'}>My Favorites</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

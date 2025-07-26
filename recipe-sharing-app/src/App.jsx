@@ -6,6 +6,7 @@ import NotFound from './components/NotFound'
 import Layout from './components/Layout'
 import EditRecipeForm from './components/EditRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
+import FavoritesList from './components/FavoritesList';
 
 export const Routes = [
   {
@@ -16,6 +17,7 @@ export const Routes = [
       { path: 'list', element: <RecipeList /> },
       { path: 'edit/:id', element: <EditRecipeForm /> },
       { path: 'recipe/:id', element: <RecipeDetails /> },
+      { path: 'favorites', element: <FavoritesList /> },
       { path: '*', element: <NotFound /> },
     ],
   },

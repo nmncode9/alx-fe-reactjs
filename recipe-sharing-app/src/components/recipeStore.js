@@ -13,6 +13,11 @@ export const useRecipeStore = create(
           recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
         )
       })),
+      favorites: [],
+      addFavorite: (recipeId) => set(state => ({ favorites: [...state.favorites, recipeId] })),
+      removeFavorite: (recipeId) => set(state => ({
+        favorites: state.favorites.filter(id => id !== recipeId)
+      })),
       addRecipe: (newRecipe) =>
         set((state) => ({
           recipes: [...state.recipes, newRecipe],
