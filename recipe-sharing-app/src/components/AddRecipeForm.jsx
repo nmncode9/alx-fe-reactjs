@@ -40,7 +40,7 @@ export default function AddRecipeForm() {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       /> <br /><br />
-      <button type="submit">Add Recipe</button>
+      <button type="submit">Add Recipe</button><br/>
     </form>
   );
 };
