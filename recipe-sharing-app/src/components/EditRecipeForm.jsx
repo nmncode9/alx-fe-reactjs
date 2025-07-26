@@ -25,6 +25,9 @@ export default function EditRecipeForm() {
     height: '400px',
     fontSize: '1.5rem'
   }
+  const saveBtn = {
+    backgroundColor: 'hsl(157, 88%, 29%)'
+  }
 
   const updateRecipe = useRecipeStore(state => state.updateRecipe)
   const [formData, setFormData] = useState({
@@ -70,9 +73,10 @@ export default function EditRecipeForm() {
           value={description}
           onChange={handleChange}
         /><br/><br/>
-        <button type="submit">Save</button><br/><br/>
+        <button style={saveBtn} type="submit">Save</button><br/><br/>
       </form>
-      <DeleteRecipeButton recipeId={recipeId}/>
+      <DeleteRecipeButton recipeId={recipeId}/>&nbsp;&nbsp;
+      <button onClick={() => navigate('/list')}>Cancel</button>
     </div>
   )
 
