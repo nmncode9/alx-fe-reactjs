@@ -6,6 +6,11 @@ import SearchBar from "./SearchBar";
 export default function RecipeList() {
   
   const recipes = useRecipeStore(state => state.recipes)
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+  const searchTerm = useRecipeStore(state => state.searchTerm);
+
+  const recipesToDisplay = searchTerm ? filteredRecipes : recipes;
+
   const recipeContainer = {
     border: '1px solid hsla(0, 0%, 100%, 0.45)',
     borderRadius: '10px',
@@ -18,14 +23,20 @@ export default function RecipeList() {
   return (
     <div>
       <SearchBar />
-      {recipes.map(recipe => (
-        <div style={recipeContainer} key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
-          <Link to={`/edit/${recipe.id}`}><button>Edit recipe</button></Link>
-        </div>
-      ))}
+      {recipesToDisplay.length > 0 ? (
+        recipesToDisplay.map(recipe => (
+          <div style={recipeContainer} key={recipe.id}>
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+            <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
+            <Link to={`/edit/${recipe.id}`}>
+              <button>Edit recipe</button>
+            </Link>
+          </div>
+        ))
+      ) : (
+        <p>No recipes found.</p>
+      )}
     </div>
-  )
+  );
 }
