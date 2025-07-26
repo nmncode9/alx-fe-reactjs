@@ -1,16 +1,16 @@
 import { useRecipeStore } from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
+import { useParams } from "react-router-dom";
 
-export default function RecipeDetails({ recipeId }) {
+export default function RecipeDetails() {
 
-  const recipe = useRecipeStore(state =>
-      state.recipes.find(recipe => recipe.id === recipeId)
-    );
+  const {id} = useParams()
+  const recipeId = Number(id)
+  const recipe = useRecipeStore(state => 
+    state.recipes.find(r => r.id === recipeId)
+  )
 
-    const recipeWrapper = {
-      width: '650px',
-      fontSize: '1rem'
-    }
+
 
   return (
       <div key={recipe.id}>
@@ -18,7 +18,6 @@ export default function RecipeDetails({ recipeId }) {
         <h3>{recipe.title}</h3>
         <p>{recipe.description}</p>
         <EditRecipeForm recipeId={recipeId} />
-        <RecipeDeleteButton recipeId={recipeId} />
       </div>
   )
 }

@@ -5,6 +5,7 @@ import RecipeList from './components/RecipeList'
 import NotFound from './components/NotFound'
 import Layout from './components/Layout'
 import EditRecipeForm from './components/EditRecipeForm';
+import RecipeDetails from './components/RecipeDetails';
 
 export const Routes = [
   {
@@ -14,6 +15,7 @@ export const Routes = [
       { path: '', element: <AddRecipeForm /> },
       { path: 'list', element: <RecipeList /> },
       { path: 'edit/:id', element: <EditRecipeForm /> },
+      { path: 'recipe/:id', element: <RecipeDetails /> },
       { path: '*', element: <NotFound /> },
     ],
   },
