@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+// recommendations
+
 export const useRecipeStore = create(
   persist(
     (set) => ({
