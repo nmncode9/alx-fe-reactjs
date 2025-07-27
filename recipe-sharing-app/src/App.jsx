@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createBrowserRouter} from 'react-router-dom';
 import './App.css'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList'
@@ -11,7 +11,7 @@ import FavoritesList from './components/FavoritesList';
 export const Routes = [
   {
     path: '/',
-    element: <Layout />, // acts as the base layout with <Outlet />
+    element: <Layout />,
     children: [
       { path: '', element: <AddRecipeForm /> },
       { path: 'list', element: <RecipeList /> },
