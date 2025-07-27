@@ -2,6 +2,7 @@ import { useRecipeStore } from './recipeStore';
 import { Link } from 'react-router-dom';
 import DeleteRecipeButton from './DeleteRecipeButton';
 import AddToFavoritesButton from './AddToFavoritesButton';
+import SearchBar from './SearchBar';
 
 
 export default function FavoritesList() {
@@ -9,7 +10,13 @@ export default function FavoritesList() {
   const favorites = useRecipeStore(state => state.favorites);
   const recipes = useRecipeStore(state => state.recipes);
 
-  const favoriteRecipes = recipes.filter(recipe => favorites.includes(recipe.id));
+  const searchTerm = useRecipeStore(state => state.searchTerm)
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes)
+  
+  const recipesToDisplay = searchTerm ? filteredRecipes : recipes 
+
+  const favoriteRecipes = recipesToDisplay.filter(recipe => favorites.includes(recipe.id));
+
 
   const recipeContainer = {
     border: '1px solid hsla(0, 0%, 100%, 0.45)',
@@ -22,8 +29,10 @@ export default function FavoritesList() {
 
   return (
     <div>
+      <SearchBar />
       <h2>My Favorites</h2>
-      {favoriteRecipes.map(recipe => (
+      { filteredRecipes.length > 0 ? (
+        favoriteRecipes.map(recipe => (
         <div style={recipeContainer}>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
@@ -37,7 +46,10 @@ export default function FavoritesList() {
           <AddToFavoritesButton recipeId={recipe.id} />
         </div>
       ))
-      }
+      ) : (
+        <p>No favorites found</p>
+      )
+    }
   </div>
   )
 }
