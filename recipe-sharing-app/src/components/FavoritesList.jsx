@@ -1,6 +1,7 @@
 import { useRecipeStore } from './recipeStore';
 import { Link } from 'react-router-dom';
 import DeleteRecipeButton from './DeleteRecipeButton';
+import AddToFavoritesButton from './AddToFavoritesButton';
 
 
 export default function FavoritesList() {
@@ -32,7 +33,8 @@ export default function FavoritesList() {
           </Link>&nbsp;&nbsp;
           <Link to={`/recipe/${recipe.id}`}>
             <button>View details</button>
-          </Link>
+          </Link><br/><br/>
+          <AddToFavoritesButton recipeId={recipe.id} />
         </div>
       ))
       }

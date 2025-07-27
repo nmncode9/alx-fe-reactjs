@@ -2,6 +2,7 @@ import { useRecipeStore } from "./recipeStore";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import AddToFavoritesButton from "./AddToFavoritesButton";
 
 export default function RecipeList() {
   
@@ -34,7 +35,8 @@ export default function RecipeList() {
             </Link>&nbsp;&nbsp;
             <Link to={`/recipe/${recipe.id}`}>
               <button>View details</button>
-            </Link>
+            </Link><br/><br/>
+            <AddToFavoritesButton recipeId={recipe.id} />
           </div>
         ))
       ) : (
