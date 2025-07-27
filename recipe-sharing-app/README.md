@@ -41,7 +41,7 @@ This project was my first attempt at using Zustand for state management and was 
 1. Clone the repository  
 2. Run `npm install` to install dependencies  
 3. Run `npm start` to start the development server  
-4. Access the app at `http://localhost:3000`
+4. Access the app at `http://localhost:5173`
 
 ## Notes
 
