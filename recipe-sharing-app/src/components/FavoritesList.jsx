@@ -31,9 +31,9 @@ export default function FavoritesList() {
     <div>
       <SearchBar />
       <h2>My Favorites</h2>
-      { filteredRecipes.length > 0 ? (
+      { favoriteRecipes.length > 0 ? ( 
         favoriteRecipes.map(recipe => (
-        <div style={recipeContainer}>
+        <div style={recipeContainer} key={recipe.id}>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
           <DeleteRecipeButton recipeId={recipe.id} />&nbsp;&nbsp;
