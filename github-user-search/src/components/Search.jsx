@@ -4,9 +4,12 @@ import fetchUserData from "../services/githubService";
 export default function Search() {
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const [country, setCountry] = useState("") 
+  const [repoCount, setRepoCount] = useState(0)
 
   const inputStyle = {
     width: "50%",
@@ -33,9 +36,6 @@ export default function Search() {
     borderRadius: "100px",
   }
 
-  function handleChange(e) {
-    setSearchTerm(e.target.value)
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -43,11 +43,11 @@ export default function Search() {
 
     setLoading(true)
     setError(null)
-    setUser(null)
+    setUsers([])
 
     try {
-      const data = await fetchUserData(searchTerm);
-      setUser(data);
+      const data = await fetchUserData(searchTerm, repoCount, country);
+      setUsers(data);
       setSearchTerm("");
     } catch (error) {
       setError("Looks like we cant find the user"); // sic. the TDD required the typo
@@ -60,24 +60,35 @@ export default function Search() {
     <>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
+          type="search"
           name="user"
           placeholder="Search for a user"
           style={inputStyle}
           value={searchTerm}
-          onChange={handleChange} /><br/><br/>
-        
+          onChange={(e) => setSearchTerm(e.target.value)} /><br/><br/>
+        <input
+          type="text"
+          name="country"
+          placeholder="Country"
+          onChange={(e) => setCountry(e.target.value)} />
+        <input
+          type="number"
+          name="repo count"
+          placeholder="Repo count"
+          onChange={(e) => setRepoCount(e.target.value)} /><br/><br/>
         <button type="submit">Search</button>
       </form>
 
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {user && (
-        <article style={repoCardStyle}>
+      {users.length > 0 && (
+        users.map(user => (
+        <article style={repoCardStyle} key={user.id}>
           <img style={avatarStyle} src={user.avatar_url} alt={user.login} width="100" />
           <h2>{user.name || user.login}</h2>
           <a href={user.html_url} target="_blank" rel="noreferrer noopener">View profile</a>
         </article>
+        ))
       )}
 
     </>
