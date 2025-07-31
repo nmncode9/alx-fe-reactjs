@@ -72,9 +72,9 @@ export default function Search() {
       {error && <p>{error}</p>}
       {user && (
         <article style={repoCardStyle}>
-          <img style={avatarStyle} src={user.avatarUrl} alt={user.login} width="100" />
+          <img style={avatarStyle} src={user.avatar_url} alt={user.login} width="100" />
           <h2>{user.name || user.login}</h2>
-          <a href={user.url} target="_blank" rel="noreferrer noopener">View profile</a>
+          <a href={user.html_url} target="_blank" rel="noreferrer noopener">View profile</a>
         </article>
       )}
 
