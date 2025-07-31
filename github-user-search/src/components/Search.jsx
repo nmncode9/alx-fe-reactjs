@@ -50,9 +50,9 @@ export default function Search() {
       setUser(data);
       setSearchTerm("");
     } catch (error) {
-      setError("Looks like we cant find the user")
+      setError("Looks like we cant find the user"); // sic. the TDD required the typo
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -61,10 +61,12 @@ export default function Search() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search a repo"
+          name="user"
+          placeholder="Search for a user"
           style={inputStyle}
           value={searchTerm}
           onChange={handleChange} /><br/><br/>
+        
         <button type="submit">Search</button>
       </form>
 
