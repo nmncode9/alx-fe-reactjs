@@ -50,7 +50,7 @@ export default function Search() {
       setUser(data);
       setSearchTerm("");
     } catch (error) {
-      setError("Looks like we can't find the user")
+      setError("Looks like we cant find the user")
     } finally {
       setLoading(false)
     }
