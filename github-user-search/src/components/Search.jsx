@@ -31,6 +31,7 @@ export default function Search() {
 
   const avatarStyle = {
     borderRadius: "100px",
+    margin: "0 auto"
   };
 
   async function handleSubmit(e) {
