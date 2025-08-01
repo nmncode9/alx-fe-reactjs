@@ -5,6 +5,8 @@ const BASE_URL = 'https://api.github.com';
 
 /**
  * Search users by username (basic info only)
+ * cannot query directly in "https://api.github.com/search/users?q"
+ * as it's unsupported
  */
 export const searchUsers = async (username) => {
   try {
