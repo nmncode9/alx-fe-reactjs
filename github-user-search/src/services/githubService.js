@@ -7,7 +7,7 @@ const headers = token ? { Authorization: `token ${token}` } : {};
 
 /**
  * Search users by username (basic info only)
- * cannot query directly in "https://api.github.com/search/users?q"
+ * cannot query for location or repo count directly in "https://api.github.com/search/users?q" 
  * as it's unsupported
  */
 export const searchUsers = async (username) => {
@@ -15,13 +15,25 @@ export const searchUsers = async (username) => {
     const query = `${username} in:login`;
     const response = await axios.get(`${BASE_URL}/search/users?q=${encodeURIComponent(query)}`, {headers});
     return response.data.items;
+    
+    /** 
+     * Github API response is shaped like this:
+     * {
+     *  "total_count": 123,
+     *  "incomplete_results": false,
+     *  "items": [ // array of user objects with basic info  ]
+     * }
+     * Axios puts all the response body in the data attribute
+     * So we return response.data.item
+     */
+
   } catch (error) {
     throw new Error(`Error searching users: ${error.message}`);
   }
 };
 
 /**
- * Fetch detailed user data by login
+ * Fetch detailed single user data by login
  */
 export const getUserDetails = async (username) => {
   try {
@@ -42,13 +54,13 @@ export const fetchUserData = async (username, minRepos = 0, location = "") => {
   try {
     const basicUsers = await searchUsers(username);
 
-    const detailedUsers = await Promise.all(
-      basicUsers.map(async (user) => await getUserDetails(user.login))
+    const detailedUsers = await Promise.all( // Will throw if any promise returned by getUserDetails(user.login) fails
+      basicUsers.map((user) => getUserDetails(user.login))
     );
 
     const filtered = detailedUsers.filter(user => {
       const locationMatch = location
-        ? user.location?.toLowerCase().includes(location.toLowerCase())
+        ? (user.location || "").toLowerCase().includes(location.toLowerCase())
         : true;
 
       const repoMatch = user.public_repos >= minRepos;
