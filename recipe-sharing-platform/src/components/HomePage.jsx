@@ -21,6 +21,7 @@ export default function HomePage() {
             <h2 className="text-xl mb-2">{recipe.title}</h2>
             <p className="text-base">{recipe.summary}</p>
           </div>
+          {/* <p className="grid-cols-2 grid-cols-3"></p> */}
           <img className="justify-self-center sm:justify-self-auto w-full sm:w-auto" src={recipe.image}/>
         </article>
       ))}
