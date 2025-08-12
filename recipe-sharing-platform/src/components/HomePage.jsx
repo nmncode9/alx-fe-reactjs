@@ -16,7 +16,7 @@ export default function HomePage() {
       {recipes.length === 0 && <p>Loading...</p>}
       <h2 className="text-3xl mb-8" >Recipes List</h2>
       {recipes.map(recipe => (
-        <article key={recipe.id} className="border-2 shadow-md/33 shadow-gray-200 border-gray-400 rounded-md grid grid-cols-1 sm:grid-cols-[5fr_1fr] sm:w-[52rem] w-[25rem] overflow-hidden">
+        <article key={recipe.id} className="border-2 hover:shadow-md/45 hover:shadow-gray-400 shadow-md/33 shadow-gray-200 border-gray-400/68 rounded-md grid grid-cols-1 sm:grid-cols-[5fr_1fr] sm:w-[52rem] w-[25rem] overflow-hidden">
           <div className="copy p-4">
             <h2 className="text-xl mb-2">{recipe.title}</h2>
             <p className="text-base">{recipe.summary}</p>
