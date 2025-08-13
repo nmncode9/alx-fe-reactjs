@@ -34,14 +34,14 @@ export default function RecipeDetail() {
           <h2 className="text-xl mb-2">{recipe.title}</h2>
           <p className="text-base">{recipe.summary}</p>
         </div>
-        <h3 className="mb-2">ingredients:</h3>
+        <h3 className="mb-2 font-semibold">ingredients:</h3>
         <ul className="mb-2">
           <li>Lorem</li>
           <li>Ipsum</li>
           <li>Dolor</li>
           <li>Sit</li>
         </ul>
-        <h3 className="mb-2">instructions</h3>
+        <h3 className="mb-2 font-semibold">instructions</h3>
         <p className="mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt?</p>
         {/* <p className="grid-cols-2 grid-cols-3"></p> */}
         <img className="w-full sm:w-auto sm:mx-auto" src={recipe.image}/>

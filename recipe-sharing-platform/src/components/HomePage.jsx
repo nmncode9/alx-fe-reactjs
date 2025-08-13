@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
@@ -20,6 +21,9 @@ export default function HomePage() {
           <div className="copy p-4">
             <h2 className="text-xl mb-2">{recipe.title}</h2>
             <p className="text-base">{recipe.summary}</p>
+            <Link to={`./recipe/${recipe.id}`}>
+              <button className="mt-4 rounded-md border-2 border-gray-400/68 hover:shadow-md/45 hover:shadow-gray-200 px-4 py-2">View details</button>
+            </Link>
           </div>
           {/* <p className="grid-cols-2 grid-cols-3"></p> */}
           <img className="justify-self-center sm:justify-self-auto w-full sm:w-auto" src={recipe.image}/>
