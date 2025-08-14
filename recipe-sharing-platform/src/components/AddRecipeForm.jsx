@@ -47,7 +47,7 @@ export default function AddRecipeForm() {
     <main className="m-36 w-[80%] sm:max-w-[750px] sm:mx-auto">
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <input
-        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 "
+        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 text-xl font-normal"
         type="text"
         name="title"
         placeholder="Enter a recipe title"
@@ -58,7 +58,7 @@ export default function AddRecipeForm() {
         }))} />
 
         <textarea 
-        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 "
+        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 text-xl font-normal"
         name="ingredients" 
         placeholder="Enter the ingredients"
         value={newRecipe.ingredients}
@@ -67,7 +67,7 @@ export default function AddRecipeForm() {
           [e.target.name]: e.target.value
         }))}></textarea>
         <textarea 
-        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 "
+        className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 text-xl font-normal"
         name="preparation" 
         placeholder="Enter the preparation steps"
         value={newRecipe.preparation}
