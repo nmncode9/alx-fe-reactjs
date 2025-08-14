@@ -67,7 +67,7 @@ export default function AddRecipeForm() {
         <textarea 
         className="border-gray-400/68 focus:border-gray-700/68 focus:shadow-md border-2 rounded-md p-4 outline-none mb-2 "
         name="preparation" 
-        placeholder="Enter the preparation instructions"
+        placeholder="Enter the preparation steps"
         value={newRecipe.preparation}
         onChange={(e) => setNewRecipe(prev =>({
           ...prev,
