@@ -3,6 +3,8 @@ import RecipeDetail from "./RecipeDetail";
 
 export default function AddRecipeForm() {
 
+  {/* validate errors setErrors */}
+
   const [newRecipe, setNewRecipe] = useState({
     "id": Date.now(),
     "title": "",
